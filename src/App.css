@@ -26,13 +26,6 @@
   margin-bottom: 20px;
 }
 
-@font-face {
-  font-family: ultra;
-  src: url(C:\Users\piotr\IdeaProjects\recipe-finder-app\public\Ultra-Regular.ttf);
-}
-.ultra {
-  font-family: ultra;
-}
 .search-form input {
   padding: 10px;
   width: 300px;

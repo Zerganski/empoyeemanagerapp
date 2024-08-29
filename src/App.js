@@ -1,4 +1,5 @@
 import { Button, Card, CardContent, CardMedia, Container, Dialog, DialogActions, DialogContent, DialogTitle, Grid, Typography } from '@mui/material';
+import Divider from '@mui/material/Divider';
 import axios from 'axios';
 import React, { useCallback, useEffect, useState } from 'react';
 import "./App.css";
@@ -89,7 +90,6 @@ const App = () => {
   }}>
     <h1 
     style={{ marginBottom: '40px', fontSize: '50px', letterSpacing: '3px', textDecorationThickness: '-50%' }}
-    className='ultra'
     
     > 
     Recipe Search App</h1>
@@ -124,10 +124,8 @@ const App = () => {
                 {recipe.recipe.label}
               </Typography>
               <Typography variant="body2">
-                Calories: {Math.round(recipe.recipe.calories)}
-              </Typography>
-              <Typography variant="body2">
-                Ingredients: {recipe.recipe.ingredientLines.length}
+             
+                Calories: {Math.round(recipe.recipe.calories)}  <Divider orientation="vertical" variant="middle" flexItem /> Ingredients: {recipe.recipe.ingredientLines.length}
               </Typography>
             </CardContent>
           </Card>
@@ -166,55 +164,15 @@ const App = () => {
                   {recipe.recipe.label}
                 </Typography>
                 <Typography variant="body2">
-                  Calories: {Math.round(recipe.recipe.calories)}
-                </Typography>
-                <Typography variant="body2">
+                  Calories: {Math.round(recipe.recipe.calories)}  |
                   Ingredients: {recipe.recipe.ingredientLines.length}
-                </Typography>
+                </Typography>              
               </CardContent>
             </Card>
           </Grid>
         ))}
       </Grid>
 
-      <Typography variant="h4" gutterBottom style={{ marginTop: '40px' }}>
-      </Typography>
-      <Grid container spacing={4}>
-        {recipes.map((recipe, index) => (
-          <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
-            <Card
-              style={{ 
-                width: '100%', 
-                height: '100%', 
-                cursor: 'pointer',
-                borderRadius: '8px',
-                overflow: 'hidden',
-                marginTop: "20px"
-              }}
-              onClick={() => handleCardClick(recipe)}
-            >
-              <CardMedia
-                component="img"
-                alt={recipe.recipe.label}
-                height="200"
-                image={recipe.recipe.image}
-                title={recipe.recipe.label}
-              />
-              <CardContent>
-                <Typography variant="h6" gutterBottom>
-                  {recipe.recipe.label}
-                </Typography>
-                <Typography variant="body2">
-                  Calories: {Math.round(recipe.recipe.calories)}
-                </Typography>
-                <Typography variant="body2">
-                  Ingredients: {recipe.recipe.ingredientLines.length}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
 
       <Dialog open={!!selectedRecipe} onClose={handleCloseDialog}>
         <DialogTitle>{selectedRecipe?.recipe.label}</DialogTitle>
